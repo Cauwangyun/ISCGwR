@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 432.00 432.00'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<line x1='71.73' y1='358.56' x2='389.07' y2='358.56' style='stroke-width: 0.75;' />
+<line x1='71.73' y1='358.56' x2='71.73' y2='365.76' style='stroke-width: 0.75;' />
+<line x1='135.20' y1='358.56' x2='135.20' y2='365.76' style='stroke-width: 0.75;' />
+<line x1='198.67' y1='358.56' x2='198.67' y2='365.76' style='stroke-width: 0.75;' />
+<line x1='262.13' y1='358.56' x2='262.13' y2='365.76' style='stroke-width: 0.75;' />
+<line x1='325.60' y1='358.56' x2='325.60' y2='365.76' style='stroke-width: 0.75;' />
+<line x1='389.07' y1='358.56' x2='389.07' y2='365.76' style='stroke-width: 0.75;' />
+<text x='68.73' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='132.20' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='195.67' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='259.13' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='322.60' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='386.07' y='384.48' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>5</text>
+<line x1='59.04' y1='347.47' x2='59.04' y2='70.13' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='347.47' x2='51.84' y2='347.47' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='292.00' x2='51.84' y2='292.00' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='236.53' x2='51.84' y2='236.53' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='181.07' x2='51.84' y2='181.07' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='125.60' x2='51.84' y2='125.60' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='70.13' x2='51.84' y2='70.13' style='stroke-width: 0.75;' />
+<text transform='translate(41.76,350.47) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(41.76,295.00) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text transform='translate(41.76,239.53) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text transform='translate(41.76,184.07) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text transform='translate(41.76,128.60) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text transform='translate(41.76,73.13) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='6.00px' lengthAdjust='spacingAndGlyphs'>5</text>
+<polyline points='59.04,358.56 401.76,358.56 401.76,59.04 59.04,59.04 59.04,358.56 ' style='stroke-width: 0.75;' />
+<text x='222.73' y='413.28' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='15.34px' lengthAdjust='spacingAndGlyphs'>0:5</text>
+<text transform='translate(12.96,216.47) rotate(-90)' style='font-size: 12.00px; font-family: Nimbus Roman No9 L;' textLength='15.34px' lengthAdjust='spacingAndGlyphs'>0:5</text>
+<defs>
+  <clipPath id='cpNTkuMDR8NDAxLjc2fDM1OC41Nnw1OS4wNA=='>
+    <rect x='59.04' y='59.04' width='342.72' height='299.52' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDM1OC41Nnw1OS4wNA==)'><text x='111.87' y='300.02' style='font-size: 24.00px; font-family: Nimbus Roman No9 L;' textLength='46.66px' lengthAdjust='spacingAndGlyphs'>Serif</text></g>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDM1OC41Nnw1OS4wNA==)'><text x='174.01' y='244.61' style='font-size: 24.00px; font-weight: bold; font-family: Nimbus Roman No9 L;' textLength='49.32px' lengthAdjust='spacingAndGlyphs'>Serif</text></g>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDM1OC41Nnw1OS4wNA==)'><text x='239.47' y='186.72' style='font-size: 24.00px; font-style: italic; font-family: Nimbus Roman No9 L;' textLength='45.34px' lengthAdjust='spacingAndGlyphs'>Serif</text></g>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDM1OC41Nnw1OS4wNA==)'><text x='301.60' y='131.51' style='font-size: 24.00px; font-weight: bold; font-style: italic; font-family: Nimbus Roman No9 L;' textLength='48.00px' lengthAdjust='spacingAndGlyphs'>Serif</text></g>
+</svg>

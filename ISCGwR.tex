@@ -1,0 +1,813 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[a4paper,oneside,UTF8]{book}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={统计计算与图形},
+            pdfauthor={黄湘云},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\usepackage[UTF8]{ctexcap}
+\usepackage{amssymb,amsmath,amsfonts,mathrsfs}
+\usepackage[lotdepth=2,lofdepth=2]{subfig}
+\usepackage[nottoc]{tocbibind}
+\usepackage{Alegreya}
+\usepackage[sfdefault]{AlegreyaSans}
+\usepackage[scale=0.85]{sourcecodepro}
+\makeatletter
+\defaultfontfeatures[\ttfamily]{
+    Numbers   = \sourcecodepro@figurestyle,
+    Scale     = \SourceCodePro@scale,
+    Extension = .otf }
+\setmonofont
+    [ UprightFont    = *-\sourcecodepro@regstyle,
+		  ItalicFont     = *-\sourcecodepro@regstyle It,
+		  BoldFont       = *-\sourcecodepro@boldstyle, 
+		  BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+		{SourceCodePro}    
+\makeatother
+\usepackage{makeidx}
+\makeindex
+\frontmatter
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{统计计算与图形}
+\author{黄湘云}
+\date{2018-09-19 11:53:55 CST}
+
+\begin{document}
+\maketitle
+
+\thispagestyle{empty}
+% \begin{center}
+% \includegraphics{images/hadley}
+% \end{center}
+\setlength{\abovedisplayskip}{-5pt}
+\setlength{\abovedisplayshortskip}{-5pt}
+
+{
+\setcounter{tocdepth}{1}
+\tableofcontents
+}
+\hypertarget{welcome}{%
+\chapter{欢迎}\label{welcome}}
+
+R 软件主要用于统计计算和统计绘图， 因其提供了完整的绘图系统， 实现了大量的统计方法， 而且相比于其他统计软件，具有免费和更新快的特点，在当今数据时代浪潮下，占有一席之地。 Markdown \index{markdown} 是一个文本标记语言。 欢迎来到 R 语言的世界， 写点关于发展历史等容易吸引人的东西， 让读者有继续看下去的欲望。
+
+\hypertarget{structure}{%
+\section*{结构}\label{structure}}
+\addcontentsline{toc}{section}{结构}
+
+介绍书籍写作工具，写作风格设定，结构说明，R语言介绍\footnote{\url{https://www.r-project.org/about.html}}
+
+\begin{figure}
+
+{\centering \subfloat[历史\label{fig:r-logo1}]{\href{https://www.r-project.org/}{\includegraphics[width=0.35\linewidth]{images/Rlogo_old} }}\subfloat[现在\label{fig:r-logo2}]{\href{https://www.r-project.org/}{\includegraphics[width=0.35\linewidth]{images/Rlogo} }}
+
+}
+
+\caption{R语言}\label{fig:r-logo}
+\end{figure}
+
+\hypertarget{history}{%
+\section*{历史}\label{history}}
+\addcontentsline{toc}{section}{历史}
+
+历史数据分析
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 获取数据}
+\NormalTok{pdb <-}\StringTok{ }\NormalTok{tools}\OperatorTok{::}\KeywordTok{CRAN_package_db}\NormalTok{()}
+\NormalTok{pdb <-}\StringTok{ }\NormalTok{pdb[,}\KeywordTok{c}\NormalTok{(}\StringTok{"Package"}\NormalTok{,}\StringTok{"Published"}\NormalTok{)]}
+\CommentTok{# pdb <- readRDS(file = "data/pdb.RDS")}
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\KeywordTok{ggplot}\NormalTok{(pdb[,}\KeywordTok{c}\NormalTok{(}\StringTok{"Package"}\NormalTok{,}\StringTok{"Published"}\NormalTok{)], }\KeywordTok{aes}\NormalTok{( }\KeywordTok{as.Date}\NormalTok{(Published) ) ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_bar}\NormalTok{(}\DataTypeTok{color =} \StringTok{'springgreen4'}\NormalTok{) }\OperatorTok{+}\StringTok{ }
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{(}\DataTypeTok{data =} \KeywordTok{data.frame}\NormalTok{( }\DataTypeTok{date =} \KeywordTok{as.Date}\NormalTok{( }\KeywordTok{c}\NormalTok{(}\StringTok{"2011-01-01"}\NormalTok{,}\StringTok{"2012-10-20"}\NormalTok{) ),}
+                               \DataTypeTok{count =} \KeywordTok{c}\NormalTok{(}\DecValTok{130}\NormalTok{,}\DecValTok{148}\NormalTok{)), }\KeywordTok{aes}\NormalTok{(}\DataTypeTok{x =}\NormalTok{ date , }\DataTypeTok{y =}\NormalTok{ count),}
+            \DataTypeTok{arrow =} \KeywordTok{arrow}\NormalTok{(}\DataTypeTok{angle =} \DecValTok{15}\NormalTok{, }\DataTypeTok{length =} \KeywordTok{unit}\NormalTok{(}\FloatTok{0.15}\NormalTok{, }\StringTok{"inches"}\NormalTok{))) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\DataTypeTok{x =} \KeywordTok{as.Date}\NormalTok{(}\StringTok{"2010-11-01"}\NormalTok{), }\DataTypeTok{y =} \DecValTok{128}\NormalTok{, }\DataTypeTok{label =} \StringTok{"(2012-10-29,148)"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_x_date}\NormalTok{(}\DataTypeTok{date_breaks =} \StringTok{"1 year"}\NormalTok{,}\DataTypeTok{date_labels =} \StringTok{"%Y"}\NormalTok{) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{labs}\NormalTok{(}\DataTypeTok{x =} \StringTok{"Published Date"}\NormalTok{ ,}\DataTypeTok{y =} \StringTok{"Count"}\NormalTok{ ) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{theme_minimal}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{index_files/figure-latex/publish-count-1} 
+
+}
+
+\caption{有趣的是在2012年10月29日更新的R包多达148个}\label{fig:publish-count}
+\end{figure}
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{images/publish-packages} 
+
+}
+
+\caption{R包发布量变化趋势}\label{fig:publish-packages}
+\end{figure}
+
+R语言进入到各方各面
+
+如何重复本书，写作工具，如何提交 PR，参与写作
+
+益辉维护的 R Markdown 生态及其它 R 包，如图 \ref{fig:yihui-packages}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{figures/packages.png}
+\caption[\label{fig:yihui-packages} 益辉在 Github 上维护的 R 包]{\label{fig:yihui-packages} 益辉在 Github 上维护的 R 包\footnotemark{}}
+\end{figure}
+\footnotetext{2018年8月9日}
+
+\hypertarget{colophon}{%
+\section*{后记}\label{colophon}}
+\addcontentsline{toc}{section}{后记}
+
+这本书是在 \href{https://www.rstudio.com/products/rstudio/download/}{RStudio} 内用 \href{https://rmarkdown.rstudio.com/}{R Markdown} \citep{xie2018} 写的， \href{https://git-scm.com/}{Git} 控制版本， \href{https://bookdown.org/yihui/bookdown/}{bookdown} \index{bookdown} \citep{xie2016} 组织章节， \href{https://yihui.name/knitr/}{knitr} \index{knitr} \citep{xie2015} 调用各类编程语言或解释或编译代码块，将执行结果返回到 R Markdown 文件， \href{http://pandoc.org}{Pandoc} \index{Pandoc} 再将其转化为 Markdown 和 HTML 文档，进一步转化为 PDF 格式文档则需要 TinyTeX \index{TinyTeX} 发行版\footnote{\url{https://yihui.name/tinytex/}}。
+
+\begin{figure}
+\centering
+\includegraphics[width=0.75\textwidth,height=\textheight]{images/workflow.png}
+\caption[\label{fig:workflow} 工作流程图]{\label{fig:workflow} 工作流程图\footnotemark{}}
+\end{figure}
+\footnotetext{Inkscape 绘制}
+
+这个网站是通过 \href{https://travis-ci.com/}{Travis-CI} 把编译结果（即 \texttt{\_book} 目录）推送到 \href{https://www.netlify.com/}{Netlify} 实现部署。在 Travis-CI 和 Netlify 都与 Github 绑定的情况下，源代码一发生改变就会触发编译，编译成功就会自动部署，这个过程即持续集成和连续部署，你正在阅读的版本是 2018-09-19 在 \href{https://travis-ci.com/XiangyunHuang/ISCGwR}{Travis} 上构建的。
+
+\hypertarget{conventions}{%
+\section*{说明}\label{conventions}}
+\addcontentsline{toc}{section}{说明}
+
+Alegreya 罗马体显示正文，AlegreyaSans 等线体显示数字，sourcecodepro 等宽体显示代码，Alegreya 字体源文件见 \url{https://github.com/huertatipografica/} 和样式见 \url{https://huertatipografica.com/en}，我们可以通过安装 LaTeX 包 alegreya 获得。R 包名称在文中以粗体显示，代码块输出用 \texttt{\#\textgreater{}} 表示，以区分普通的代码注释 \texttt{\#}
+
+绘图使用的中文字体是思源宋体和思源黑体， 由 \textbf{showtext} 包安装和调用，\textbf{tikzDevice} 和 \textbf{fontcm} 处理其中的数学公式，\textbf{xkcd} 设置漫画手写体风格。
+
+我的写作环境是 VBox + Ubuntu 16.04.4 Server + PuTTY + Xming，如图 \ref{fig:swordsmans} 所示。
+
+\begin{figure}
+
+{\centering \subfloat[VBox 虚拟机\label{fig:swordsmans1}]{\includegraphics[width=0.35\linewidth]{figures/VBox} }\subfloat[Ubuntu Server系统\label{fig:swordsmans2}]{\includegraphics[width=0.35\linewidth]{figures/Ubuntu} }\\\subfloat[PuTTY SSH登陆客户端\label{fig:swordsmans3}]{\includegraphics[width=0.35\linewidth]{figures/PuTTY} }\subfloat[显示服务器 X Windows System\label{fig:swordsmans4}]{\includegraphics[width=0.35\linewidth]{figures/Xming} }
+
+}
+
+\caption{远程办公四剑客}\label{fig:swordsmans}
+\end{figure}
+
+书籍生成过程中，R 进程和 Pandoc 版本信息如下：
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{xfun}\OperatorTok{::}\KeywordTok{session_info}\NormalTok{()}
+\CommentTok{#> R version 3.5.0 (2017-01-27)}
+\CommentTok{#> Platform: x86_64-pc-linux-gnu (64-bit)}
+\CommentTok{#> Running under: Ubuntu 14.04.5 LTS}
+\CommentTok{#> }
+\CommentTok{#> Locale:}
+\CommentTok{#>   LC_CTYPE=en_US.UTF-8       LC_NUMERIC=C              }
+\CommentTok{#>   LC_TIME=en_US.UTF-8        LC_COLLATE=en_US.UTF-8    }
+\CommentTok{#>   LC_MONETARY=en_US.UTF-8    LC_MESSAGES=en_US.UTF-8   }
+\CommentTok{#>   LC_PAPER=en_US.UTF-8       LC_NAME=C                 }
+\CommentTok{#>   LC_ADDRESS=C               LC_TELEPHONE=C            }
+\CommentTok{#>   LC_MEASUREMENT=en_US.UTF-8 LC_IDENTIFICATION=C       }
+\CommentTok{#> }
+\CommentTok{#> Package version:}
+\CommentTok{#>   assertthat_0.2.0   backports_1.1.2    base64enc_0.1.3   }
+\CommentTok{#>   bookdown_0.7       cli_1.0.0          codetools_0.2-15  }
+\CommentTok{#>   colorspace_1.3-2   compiler_3.5.0     crayon_1.3.4      }
+\CommentTok{#>   curl_3.2           digest_0.6.17      evaluate_0.11     }
+\CommentTok{#>   fansi_0.3.0        ggplot2_3.0.0      glue_1.3.0        }
+\CommentTok{#>   graphics_3.5.0     grDevices_3.5.0    grid_3.5.0        }
+\CommentTok{#>   gtable_0.2.0       highr_0.7          htmltools_0.3.6   }
+\CommentTok{#>   jsonlite_1.5       knitr_1.20         labeling_0.3      }
+\CommentTok{#>   lattice_0.20.35    lazyeval_0.2.1     magrittr_1.5      }
+\CommentTok{#>   markdown_0.8       MASS_7.3.49        Matrix_1.2.14     }
+\CommentTok{#>   methods_3.5.0      mgcv_1.8.23        mime_0.5          }
+\CommentTok{#>   munsell_0.5.0      nlme_3.1.137       pillar_1.3.0      }
+\CommentTok{#>   plyr_1.8.4         R6_2.2.2           RColorBrewer_1.1.2}
+\CommentTok{#>   Rcpp_0.12.18       reshape2_1.4.3     rlang_0.2.2       }
+\CommentTok{#>   rmarkdown_1.10     rprojroot_1.3-2    scales_1.0.0      }
+\CommentTok{#>   stats_3.5.0        stringi_1.2.4      stringr_1.3.1     }
+\CommentTok{#>   tibble_1.4.2       tinytex_0.8        tools_3.5.0       }
+\CommentTok{#>   utf8_1.1.4         utils_3.5.0        viridisLite_0.3.0 }
+\CommentTok{#>   withr_2.1.2        xfun_0.3           yaml_2.2.0}
+\NormalTok{rmarkdown}\OperatorTok{::}\KeywordTok{pandoc_version}\NormalTok{()}
+\CommentTok{#> [1] '2.3'}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{licenses}{%
+\section*{授权}\label{licenses}}
+\addcontentsline{toc}{section}{授权}
+
+本书采用 \href{https://creativecommons.org/licenses/by-nc-nd/4.0/}{知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议} 许可，请君自重，别没事儿拿去传个什么新浪爱问、百度文库以及 XX 经济论坛，项目中代码使用 \href{https://github.com/XiangyunHuang/ISCGwR/blob/master/LICENSE}{MIT 协议} 开源
+
+\begin{flushleft}\includegraphics[width=0.15\linewidth]{images/by-nc-nd} \end{flushleft}
+
+\mainmatter
+
+\hypertarget{Statistical-Graphics}{%
+\part{统计图形}\label{Statistical-Graphics}}
+
+\hypertarget{Statistical-Graphics-Intro}{%
+\chapter*{介绍}\label{Statistical-Graphics-Intro}}
+\addcontentsline{toc}{chapter}{介绍}
+
+介绍这部分讲什么内容，如何展开
+
+\hypertarget{Base-Graphics}{%
+\chapter{基础图形}\label{Base-Graphics}}
+
+数据可视化是一种重要的数据分析手段，Claus O. Wilke 目前正在写《Fundamentals of Data Visualization》，并且给出了在线网络版\footnote{\url{https://serialmentor.com/dataviz/}}。
+
+1996年R语言横空出世 \citep{Ross1996} 带数学符号的注释 \citep{Paul2000}
+
+结合统计意义和探索性数据分析介绍各种常见统计图形
+
+plot 函数对象
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/plot-1} 
+
+}
+
+\caption{plot函数对象}\label{fig:plot}
+\end{figure}
+
+在介绍各种统计图形之前，先介绍几个绘图函数 \texttt{plot} 和 \texttt{text} 还有 \texttt{par} 参数设置， 作为最简单的开始， 尽量依次介绍其中的每个参数的含义并附上图形对比。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{x <-}\StringTok{ }\DecValTok{1}\OperatorTok{:}\DecValTok{4}
+\NormalTok{y <-}\StringTok{ }\NormalTok{x}
+\KeywordTok{plot}\NormalTok{(x, y, }\DataTypeTok{ann =}\NormalTok{ F, }\DataTypeTok{col =} \StringTok{"blue"}\NormalTok{, }\DataTypeTok{pch =} \DecValTok{16}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(x, y,}
+  \DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"1st"}\NormalTok{, }\StringTok{"2nd"}\NormalTok{, }\StringTok{"3rd"}\NormalTok{, }\StringTok{"4th"}\NormalTok{),}
+  \DataTypeTok{col =} \StringTok{"red"}\NormalTok{, }\DataTypeTok{pos =} \KeywordTok{c}\NormalTok{(}\DecValTok{3}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{1}\NormalTok{), }\DataTypeTok{offset =} \FloatTok{0.6}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/pos-1} \end{center}
+
+其中 labels， pos 都是向量化的参数
+
+\hypertarget{scatter-chart}{%
+\section{散点图}\label{scatter-chart}}
+
+散点图（点图），抖动图（箱线图），一维的二维的
+
+高亮某些点，按类别绘散点图\footnote{\url{https://stackoverflow.com/questions/51804892/use-vectorized-plotting-arguments-when-plotting-by-factor-in-r}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\NormalTok{pch <-}\StringTok{ }\KeywordTok{rep}\NormalTok{(}\DecValTok{16}\NormalTok{, }\KeywordTok{length}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Petal.Length))}
+\NormalTok{pch[}\KeywordTok{which}\NormalTok{(iris}\OperatorTok{$}\NormalTok{Petal.Length }\OperatorTok{<}\StringTok{ }\FloatTok{1.4}\NormalTok{)] <-}\StringTok{ }\DecValTok{17}
+\KeywordTok{stripchart}\NormalTok{(Petal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species,}
+  \DataTypeTok{data =}\NormalTok{ iris,}
+  \DataTypeTok{vertical =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{method =} \StringTok{"jitter"}\NormalTok{,}
+  \DataTypeTok{pch =}\NormalTok{ pch}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/wrong-scatter-1} 
+
+}
+
+\caption{错误的散点图画法}\label{fig:wrong-scatter}
+\end{figure}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{methods}\NormalTok{(stripchart)}
+\KeywordTok{getAnywhere}\NormalTok{(stripchart.default)}
+\KeywordTok{getAnywhere}\NormalTok{(xy.coords)}
+\end{Highlighting}
+\end{Shaded}
+
+pch 没有向量化 实际只是取了前三个值 16 16 17 对应于 Species 的三类
+
+高亮某些点 关键是高亮的分界点是由区分意义的
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{data}\NormalTok{(}\StringTok{"iris"}\NormalTok{)}
+\KeywordTok{stripchart}\NormalTok{(Petal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species,}
+  \DataTypeTok{data =}\NormalTok{ iris, }\DataTypeTok{subset =}\NormalTok{ Petal.Length }\OperatorTok{>}\StringTok{ }\FloatTok{1.4}\NormalTok{,}
+  \DataTypeTok{vertical =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{method =} \StringTok{"jitter"}\NormalTok{, }\DataTypeTok{ylim =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{7}\NormalTok{),}
+  \DataTypeTok{pch =} \DecValTok{16}
+\NormalTok{)}
+\KeywordTok{stripchart}\NormalTok{(Petal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species,}
+  \DataTypeTok{data =}\NormalTok{ iris, }\DataTypeTok{subset =}\NormalTok{ Petal.Length }\OperatorTok{<}\StringTok{ }\FloatTok{1.4}\NormalTok{,}
+  \DataTypeTok{vertical =} \OtherTok{TRUE}\NormalTok{, }\DataTypeTok{method =} \StringTok{"jitter"}\NormalTok{, }\DataTypeTok{add =} \OtherTok{TRUE}\NormalTok{,}
+  \DataTypeTok{pch =} \DecValTok{17}
+\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/right-scatter-1} 
+
+}
+
+\caption{正确的散点图}\label{fig:right-scatter}
+\end{figure}
+
+\hypertarget{line-chart}{%
+\section{折线图}\label{line-chart}}
+
+应用：时序图
+
+\hypertarget{bar-chart}{%
+\section{条形图}\label{bar-chart}}
+
+条形图
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/ISLR-1} 
+
+}
+
+\caption{条形图}\label{fig:ISLR}
+\end{figure}
+
+应用： 自协方差、自相关、偏自相关、协相关和协方差图，
+
+\hypertarget{hist}{%
+\section{直方图}\label{hist}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ faithful, \{}
+  \KeywordTok{hist}\NormalTok{(eruptions, }\KeywordTok{seq}\NormalTok{(}\FloatTok{1.6}\NormalTok{, }\FloatTok{5.2}\NormalTok{, }\FloatTok{0.2}\NormalTok{), }\DataTypeTok{prob =} \OtherTok{TRUE}\NormalTok{)}
+  \KeywordTok{lines}\NormalTok{(}\KeywordTok{density}\NormalTok{(eruptions, }\DataTypeTok{bw =} \FloatTok{0.1}\NormalTok{))}
+  \KeywordTok{rug}\NormalTok{(eruptions) }\CommentTok{# show the actual data points}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/eruptions-1} \end{center}
+
+\hypertarget{ecdf}{%
+\section{经验累积分布图}\label{ecdf}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ faithful, \{}
+\NormalTok{  long <-}\StringTok{ }\NormalTok{eruptions[eruptions }\OperatorTok{>}\StringTok{ }\DecValTok{3}\NormalTok{]}
+  \KeywordTok{plot}\NormalTok{(}\KeywordTok{ecdf}\NormalTok{(long), }\DataTypeTok{do.points =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{verticals =} \OtherTok{TRUE}\NormalTok{)}
+\NormalTok{  x <-}\StringTok{ }\KeywordTok{seq}\NormalTok{(}\DecValTok{3}\NormalTok{, }\FloatTok{5.4}\NormalTok{, }\FloatTok{0.01}\NormalTok{)}
+  \KeywordTok{lines}\NormalTok{(x, }\KeywordTok{pnorm}\NormalTok{(x, }\DataTypeTok{mean =} \KeywordTok{mean}\NormalTok{(long), }\DataTypeTok{sd =} \KeywordTok{sqrt}\NormalTok{(}\KeywordTok{var}\NormalTok{(long))), }\DataTypeTok{lty =} \DecValTok{3}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/faithful-1} \end{center}
+
+\hypertarget{qqnorm}{%
+\section{QQ 正态分布图}\label{qqnorm}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ faithful, \{}
+\NormalTok{  long <-}\StringTok{ }\NormalTok{eruptions[eruptions }\OperatorTok{>}\StringTok{ }\DecValTok{3}\NormalTok{]}
+  \KeywordTok{par}\NormalTok{(}\DataTypeTok{pty =} \StringTok{"s"}\NormalTok{) }\CommentTok{# arrange for a square figure region}
+  \KeywordTok{qqnorm}\NormalTok{(long)}
+  \KeywordTok{qqline}\NormalTok{(long)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/faithful-eruptions-1} \end{center}
+
+\hypertarget{boxplot}{%
+\section{箱线图}\label{boxplot}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{A <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{79.98}\NormalTok{, }\FloatTok{80.04}\NormalTok{, }\FloatTok{80.02}\NormalTok{, }\FloatTok{80.04}\NormalTok{, }\FloatTok{80.03}\NormalTok{, }\FloatTok{80.03}\NormalTok{, }\FloatTok{80.04}\NormalTok{, }\FloatTok{79.97}\NormalTok{,}
+       \FloatTok{80.05}\NormalTok{, }\FloatTok{80.03}\NormalTok{, }\FloatTok{80.02}\NormalTok{, }\DecValTok{80}\NormalTok{, }\FloatTok{80.02}\NormalTok{)}
+\NormalTok{B <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\FloatTok{80.02}\NormalTok{, }\FloatTok{79.94}\NormalTok{, }\FloatTok{79.98}\NormalTok{, }\FloatTok{79.97}\NormalTok{, }\FloatTok{79.97}\NormalTok{, }\FloatTok{80.03}\NormalTok{, }\FloatTok{79.95}\NormalTok{, }\FloatTok{79.97}\NormalTok{)}
+\KeywordTok{boxplot}\NormalTok{(A, B)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/boxplot-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{with}\NormalTok{(}\DataTypeTok{data =}\NormalTok{ iris, \{}
+\NormalTok{  op <-}\StringTok{ }\KeywordTok{par}\NormalTok{(}\DataTypeTok{mfrow =} \KeywordTok{c}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{2}\NormalTok{), }\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{, }\DecValTok{4}\NormalTok{, }\DecValTok{2}\NormalTok{, }\FloatTok{.5}\NormalTok{))}
+  \KeywordTok{plot}\NormalTok{(Sepal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species)}
+  \KeywordTok{plot}\NormalTok{(Sepal.Width }\OperatorTok{~}\StringTok{ }\NormalTok{Species)}
+  \KeywordTok{plot}\NormalTok{(Petal.Length }\OperatorTok{~}\StringTok{ }\NormalTok{Species)}
+  \KeywordTok{plot}\NormalTok{(Petal.Width }\OperatorTok{~}\StringTok{ }\NormalTok{Species)}
+  \KeywordTok{par}\NormalTok{(op)}
+  \KeywordTok{mtext}\NormalTok{(}\StringTok{"Edgar Anderson's Iris Data"}\NormalTok{, }\DataTypeTok{side =} \DecValTok{3}\NormalTok{, }\DataTypeTok{line =} \DecValTok{4}\NormalTok{)}
+\NormalTok{\})}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/iris-1} 
+
+}
+
+\caption{安德森的鸢尾花数据}\label{fig:iris}
+\end{figure}
+
+\hypertarget{contour-lines}{%
+\section{等高线图}\label{contour-lines}}
+
+contour
+
+\hypertarget{perspective-plots}{%
+\section{透视图}\label{perspective-plots}}
+
+persp 多元分布函数图像
+
+\hypertarget{images}{%
+\section{热图}\label{images}}
+
+image
+
+应用：heatmap, raster 图像
+
+\hypertarget{dendrogram}{%
+\section{树图}\label{dendrogram}}
+
+dendrogram
+
+层次聚类/分类/回归树
+
+\hypertarget{graphical-parameters}{%
+\section{图形参数}\label{graphical-parameters}}
+
+\texttt{par()} 图形版面设置
+
+\hypertarget{math-annotation}{%
+\section{数学注释}\label{math-annotation}}
+
+数学符号注释，图\ref{fig:math-annotation} 自定义坐标轴 \citep{Paul2000}。
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# 自定义坐标轴}
+\KeywordTok{plot}\NormalTok{(}\KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1e6}\NormalTok{), }\KeywordTok{c}\NormalTok{(}\OperatorTok{-}\NormalTok{pi, pi), }\DataTypeTok{type =} \StringTok{"n"}\NormalTok{, }
+     \DataTypeTok{axes =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{ann =} \OtherTok{FALSE}\NormalTok{, }\DataTypeTok{log =} \StringTok{"x"}\NormalTok{)}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{at =} \KeywordTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{, }\FloatTok{1e2}\NormalTok{, }\FloatTok{1e4}\NormalTok{, }\FloatTok{1e6}\NormalTok{), }
+     \DataTypeTok{labels =} \KeywordTok{expression}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10}\OperatorTok{^}\DecValTok{2}\NormalTok{, }\DecValTok{10}\OperatorTok{^}\DecValTok{4}\NormalTok{, }\DecValTok{10}\OperatorTok{^}\DecValTok{6}\NormalTok{))}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DataTypeTok{at =} \KeywordTok{c}\NormalTok{(}\OperatorTok{-}\NormalTok{pi, }\OperatorTok{-}\NormalTok{pi }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, pi }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{, pi), }
+     \DataTypeTok{labels =} \KeywordTok{expression}\NormalTok{(}\OperatorTok{-}\NormalTok{pi, }\OperatorTok{-}\NormalTok{pi }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{, }\DecValTok{0}\NormalTok{, pi }\OperatorTok{/}\StringTok{ }\DecValTok{2}\NormalTok{, pi))}
+\KeywordTok{text}\NormalTok{(}\FloatTok{1e3}\NormalTok{, }\DecValTok{0}\NormalTok{, }\KeywordTok{expression}\NormalTok{(}\KeywordTok{italic}\NormalTok{(}\StringTok{"Customized Axes"}\NormalTok{)))}
+\KeywordTok{box}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/math-annotation-1} 
+
+}
+
+\caption{Creating Customized Axes With Suitable Annotation}\label{fig:math-annotation}
+\end{figure}
+
+\hypertarget{rotated-axis-labels}{%
+\section{旋转坐标抽标签}\label{rotated-axis-labels}}
+
+旋转坐标抽标签的例子来自手册《R FAQ》的第7章第27个问题 \citep{R-FAQ}，在基础图形中，旋转坐标轴标签需要 \texttt{text()} 而不是 \texttt{mtext()}，因为后者不支持\texttt{par("srt")}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{## Increase bottom margin to make room for rotated labels}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{mar =} \KeywordTok{c}\NormalTok{(}\DecValTok{5}\NormalTok{, }\DecValTok{4}\NormalTok{, }\FloatTok{.5}\NormalTok{, }\DecValTok{2}\NormalTok{) }\OperatorTok{+}\StringTok{ }\FloatTok{0.1}\NormalTok{)}
+\CommentTok{## Create plot with no x axis and no x axis label}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{1} \OperatorTok{:}\StringTok{ }\DecValTok{8}\NormalTok{, }\DataTypeTok{xaxt =} \StringTok{"n"}\NormalTok{,  }\DataTypeTok{xlab =} \StringTok{""}\NormalTok{)}
+\CommentTok{## Set up x axis with tick marks alone}
+\KeywordTok{axis}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DataTypeTok{labels =} \OtherTok{FALSE}\NormalTok{)}
+\CommentTok{## Create some text labels}
+\NormalTok{labels <-}\StringTok{ }\KeywordTok{paste}\NormalTok{(}\StringTok{"Label"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\DataTypeTok{sep =} \StringTok{" "}\NormalTok{)}
+\CommentTok{## Plot x axis labels at default tick marks}
+\KeywordTok{text}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{8}\NormalTok{, }\KeywordTok{par}\NormalTok{(}\StringTok{"usr"}\NormalTok{)[}\DecValTok{3}\NormalTok{] }\OperatorTok{-}\StringTok{ }\FloatTok{0.5}\NormalTok{, }\DataTypeTok{srt =} \DecValTok{45}\NormalTok{, }\DataTypeTok{adj =} \DecValTok{1}\NormalTok{,}
+     \DataTypeTok{labels =}\NormalTok{ labels, }\DataTypeTok{xpd =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{## Plot x axis label at line 6 (of 7)}
+\KeywordTok{mtext}\NormalTok{(}\DataTypeTok{side =} \DecValTok{1}\NormalTok{, }\DataTypeTok{text =} \StringTok{"X Axis Label"}\NormalTok{, }\DataTypeTok{line =} \DecValTok{4}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/rotate-axis-labels-1} 
+
+}
+
+\caption{旋转坐标轴标签}\label{fig:rotate-axis-labels}
+\end{figure}
+
+\texttt{srt\ =\ 45} 表示文本旋转角度， \texttt{xpd\ =\ TRUE} 允许文本越出绘图区域，\texttt{adj\ =\ 1} to place the right end of text at the tick marks；You can adjust the value of the 0.5 offset as required to move the axis labels up or down relative to the x axis.
+
+\hypertarget{double-y-axis}{%
+\section{双纵轴}\label{double-y-axis}}
+
+How to plot multiple time series plots in a grid, where each plot has two y axes? \url{https://stackoverflow.com/questions/52082801}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{library}\NormalTok{(ggplot2)}
+\NormalTok{dd <-}\StringTok{ }\KeywordTok{data.frame}\NormalTok{(}
+  \DataTypeTok{x =} \DecValTok{1}\OperatorTok{:}\DecValTok{11}\NormalTok{, }\DataTypeTok{y =} \KeywordTok{c}\NormalTok{(}\KeywordTok{rnorm}\NormalTok{(}\DecValTok{22}\NormalTok{),}\KeywordTok{rpois}\NormalTok{(}\DecValTok{22}\NormalTok{,}\DecValTok{5}\NormalTok{)),}
+  \DataTypeTok{id =} \KeywordTok{gl}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{paste0}\NormalTok{(}\StringTok{"ser"}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{2}\NormalTok{)),}
+  \DataTypeTok{panel =} \KeywordTok{gl}\NormalTok{(}\DecValTok{2}\NormalTok{, }\DecValTok{22}\NormalTok{, }\DataTypeTok{labels =} \KeywordTok{c}\NormalTok{(}\StringTok{"norm"}\NormalTok{,}\StringTok{"pois"}\NormalTok{))}
+\NormalTok{)}
+\CommentTok{# 设置左手刻度为 norm 右手刻度为 pois}
+\KeywordTok{ggplot}\NormalTok{(dd, }\KeywordTok{aes}\NormalTok{(x, y, }\DataTypeTok{col =}\NormalTok{ panel)) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{geom_line}\NormalTok{() }\OperatorTok{+}
+\StringTok{  }\KeywordTok{facet_wrap}\NormalTok{(}\OperatorTok{~}\NormalTok{id) }\OperatorTok{+}
+\StringTok{  }\KeywordTok{scale_y_continuous}\NormalTok{(}\DataTypeTok{sec.axis =} \KeywordTok{sec_axis}\NormalTok{(}\OperatorTok{~}\NormalTok{.))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.7\linewidth]{01A-Base-Graphics_files/figure-latex/two-axis-1} 
+
+}
+
+\caption{双纵轴时间序列}\label{fig:two-axis}
+\end{figure}
+
+\hypertarget{Advanced-Graphics}{%
+\chapter{高级图形}\label{Advanced-Graphics}}
+
+2010 年 Hadley基于图形语法开发了 ggplot 包，随后一直保持维护和开发，在2015年进行重构，推出ggplot2，经过几年的发展，现已进入软件开发的稳定阶段。
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.45\linewidth]{images/hadley} 
+
+}
+
+\caption{Hadley Wickham 的帅照}\label{fig:hadley-photo}
+\end{figure}
+
+介绍 grid 绘图系统，特别是 ggplot2 包
+
+图形语法，图层，点线，映射，统计
+
+\hypertarget{grammar-of-graphics}{%
+\section{ggplot2}\label{grammar-of-graphics}}
+
+图形语法
+
+\hypertarget{eco}{%
+\subsection{生态}\label{eco}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{grep}\NormalTok{(}\StringTok{'^(gg)'}\NormalTok{, }\KeywordTok{.packages}\NormalTok{(T), }\DataTypeTok{value =} \OtherTok{TRUE}\NormalTok{)}
+\CommentTok{#> [1] "ggplot2"}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{dynamic-graphics}{%
+\section{动态图形}\label{dynamic-graphics}}
+
+一类由静态图形合成为 gif, avi, svg 等，一类面向特定输出设备的动态图形，基于JavaScript库的交互图形，基于 OpenGL/ggobi/asymptote 的真三维图形
+
+\hypertarget{grammar-of-animated-graphics}{%
+\subsection{gganimate}\label{grammar-of-animated-graphics}}
+
+与此类似的还有 mapmate
+
+\hypertarget{ggobi}{%
+\subsection{ggobi}\label{ggobi}}
+
+\hypertarget{opengl}{%
+\subsection{OpenGL}\label{opengl}}
+
+\hypertarget{javascript}{%
+\subsection{JavaScript}\label{javascript}}
+
+\hypertarget{Published-Graphics}{%
+\chapter{出版级图形}\label{Published-Graphics}}
+
+要达到出版级的专业图形，我们需要从配色、字体等方面再下功夫
+
+\hypertarget{pick-colors}{%
+\section{配色}\label{pick-colors}}
+
+配色是快速提升图片美感的捷径，主要介绍一下基础调色板， \textbf{colorspace}，\textbf{RcolorBrewer} 和 \textbf{viridis} 三个用于配色的 R 包。除了上述要求外，还应在字体和图形质量上考虑
+
+调制两个色板
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{n <-}\StringTok{ }\DecValTok{16}
+\CommentTok{# Colors from https://github.com/johannesbjork/LaCroixColoR}
+\NormalTok{color_pal <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#FF3200"}\NormalTok{, }\StringTok{"#E9A17C"}\NormalTok{, }\StringTok{"#E9E4A6"}\NormalTok{, }\StringTok{"#1BB6AF"}\NormalTok{, }\StringTok{"#0076BB"}\NormalTok{, }\StringTok{"#172869"}\NormalTok{)}
+\NormalTok{color_pals_}\DecValTok{1}\NormalTok{ <-}\StringTok{ }\NormalTok{(grDevices}\OperatorTok{::}\KeywordTok{colorRampPalette}\NormalTok{(color_pal))(n)}
+\NormalTok{scales}\OperatorTok{::}\KeywordTok{show_col}\NormalTok{(}\DataTypeTok{colours =}\NormalTok{ color_pals_}\DecValTok{1}\NormalTok{)}
+\CommentTok{# colors in colortools from http://www.gastonsanchez.com/}
+\NormalTok{fish_pal <-}\StringTok{ }\KeywordTok{c}\NormalTok{(}\StringTok{"#69D2E7"}\NormalTok{, }\StringTok{"#6993E7"}\NormalTok{, }\StringTok{"#7E69E7"}\NormalTok{, }\StringTok{"#BD69E7"}\NormalTok{, }
+              \StringTok{"#E769D2"}\NormalTok{, }\StringTok{"#E76993"}\NormalTok{, }\StringTok{"#E77E69"}\NormalTok{, }\StringTok{"#E7BD69"}\NormalTok{, }
+              \StringTok{"#D2E769"}\NormalTok{, }\StringTok{"#93E769"}\NormalTok{, }\StringTok{"#69E77E"}\NormalTok{, }\StringTok{"#69E7BD"}\NormalTok{)}
+\NormalTok{color_pals_}\DecValTok{2}\NormalTok{ <-}\StringTok{ }\NormalTok{(grDevices}\OperatorTok{::}\KeywordTok{colorRampPalette}\NormalTok{(fish_pal))(n)}
+\NormalTok{scales}\OperatorTok{::}\KeywordTok{show_col}\NormalTok{(}\DataTypeTok{colours =}\NormalTok{ color_pals_}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \subfloat[渐变\label{fig:color-pal1}]{\includegraphics[width=0.35\linewidth]{01C-Published-Graphics_files/figure-latex/color-pal-1} }\subfloat[Hue-Saturation-Value (HSV) color model\label{fig:color-pal2}]{\includegraphics[width=0.35\linewidth]{01C-Published-Graphics_files/figure-latex/color-pal-2} }
+
+}
+
+\caption{调色板}\label{fig:color-pal}
+\end{figure}
+
+\hypertarget{choose-fonts}{%
+\section{字体}\label{choose-fonts}}
+
+xkcd 等字体
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{font_add_google}\NormalTok{(}\StringTok{"Alegreya Sans"}\NormalTok{, }\StringTok{"aleg"}\NormalTok{)}
+
+\KeywordTok{font_add_google}\NormalTok{(}\StringTok{"Source Code Pro"}\NormalTok{, }\StringTok{"sourcecodepro"}\NormalTok{)}
+
+\KeywordTok{font_add_google}\NormalTok{(}\StringTok{"Source Sans Pro"}\NormalTok{, }\StringTok{"sourcesanspro"}\NormalTok{)}
+
+\KeywordTok{font_add_google}\NormalTok{(}\StringTok{"Source Serif Pro"}\NormalTok{, }\StringTok{"sourceserifpro"}\NormalTok{)}
+
+\KeywordTok{font_add_google}\NormalTok{(}\StringTok{"Roboto"}\NormalTok{, }\StringTok{"roboto"}\NormalTok{)}
+\CommentTok{# Ubuntu Ubuntu Mono Ubuntu Condensed}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{# library(showtext,quietly = TRUE)}
+\CommentTok{# showtext.auto()}
+\CommentTok{# pdf("google-fonts.pdf")}
+\CommentTok{# font_add_google("Alegreya Sans", "aleg")}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{family =} \StringTok{"serif"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\StringTok{"Serif"}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DataTypeTok{cex =} \DecValTok{2}\NormalTok{)}
+\KeywordTok{par}\NormalTok{(}\DataTypeTok{family =} \StringTok{"sans"}\NormalTok{)}
+\KeywordTok{plot}\NormalTok{(}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{,}\DecValTok{0}\OperatorTok{:}\DecValTok{5}\NormalTok{, }\DataTypeTok{type=}\StringTok{"n"}\NormalTok{)}
+\KeywordTok{text}\NormalTok{(}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\StringTok{"Sans"}\NormalTok{, }\DataTypeTok{font=}\DecValTok{1}\OperatorTok{:}\DecValTok{4}\NormalTok{, }\DataTypeTok{cex =} \DecValTok{2}\NormalTok{)}
+\CommentTok{# dev.off()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \subfloat[Alegreya Sans 字体\label{fig:Alegreya-Sans1}]{\includegraphics[width=0.35\linewidth]{01C-Published-Graphics_files/figure-latex/Alegreya-Sans-1} }\subfloat[Sans 字体\label{fig:Alegreya-Sans2}]{\includegraphics[width=0.35\linewidth]{01C-Published-Graphics_files/figure-latex/Alegreya-Sans-2} }
+
+}
+
+\caption{两种字体}\label{fig:Alegreya-Sans}
+\end{figure}
+
+\hypertarget{save-plots}{%
+\section{保存}\label{save-plots}}
+
+图形设备，抗锯齿，颜色模式LAB，RGB，CMYK 适应展示设备需要
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\KeywordTok{embedFonts}\NormalTok{(}\DataTypeTok{file =} \StringTok{"google-fonts-ex.pdf"}\NormalTok{,}\DataTypeTok{outfile =} \StringTok{"google-fonts-ex-embed.pdf"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+另外一个方法就是使用 \texttt{cairo\_pdf} 而不是 \texttt{pdf}
+
+\cleardoublepage
+
+\hypertarget{appendix}{%
+\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+
+
+\bibliography{book.bib,packages.bib}
+
+\backmatter
+\printindex
+
+\end{document}

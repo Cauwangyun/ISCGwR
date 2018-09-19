@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 360.00 222.48'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<rect x='103.22' y='177.04' width='242.38' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='165.04' width='242.38' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='153.04' width='215.45' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='141.04' width='188.51' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='129.04' width='188.51' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='117.04' width='161.58' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='105.04' width='161.58' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='93.04' width='134.65' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='81.04' width='53.86' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='69.04' width='26.93' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='57.04' width='26.93' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='45.04' width='26.93' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='33.04' width='26.93' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<rect x='103.22' y='21.04' width='26.93' height='10.00' style='stroke-width: 0.75; stroke: #FFFFFF; fill: #ADD8E6;' />
+<text x='50.05' y='186.16' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='40.68px' lengthAdjust='spacingAndGlyphs'>NSCLC</text>
+<text x='50.71' y='174.16' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='40.01px' lengthAdjust='spacingAndGlyphs'>RENAL</text>
+<text x='22.05' y='162.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='68.68px' lengthAdjust='spacingAndGlyphs'>MELANOMA</text>
+<text x='42.72' y='150.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='48.01px' lengthAdjust='spacingAndGlyphs'>BREAST</text>
+<text x='48.05' y='138.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='42.67px' lengthAdjust='spacingAndGlyphs'>COLON</text>
+<text x='30.04' y='126.10' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='60.69px' lengthAdjust='spacingAndGlyphs'>LEUKEMIA</text>
+<text x='36.72' y='114.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='54.01px' lengthAdjust='spacingAndGlyphs'>OVARIAN</text>
+<text x='65.39' y='102.16' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='25.34px' lengthAdjust='spacingAndGlyphs'>CNS</text>
+<text x='26.05' y='90.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='64.68px' lengthAdjust='spacingAndGlyphs'>PROSTATE</text>
+<text x='22.69' y='76.99' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='68.04px' lengthAdjust='spacingAndGlyphs'>K562A-repro</text>
+<text x='22.69' y='64.99' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='68.04px' lengthAdjust='spacingAndGlyphs'>K562B-repro</text>
+<text x='18.05' y='52.99' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='72.68px' lengthAdjust='spacingAndGlyphs'>MCF7A-repro</text>
+<text x='17.39' y='40.99' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='73.34px' lengthAdjust='spacingAndGlyphs'>MCF7D-repro</text>
+<text x='27.40' y='30.17' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='63.33px' lengthAdjust='spacingAndGlyphs'>UNKNOWN</text>
+<line x1='103.22' y1='193.68' x2='345.60' y2='193.68' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='103.22' y1='193.68' x2='103.22' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='130.15' y1='193.68' x2='130.15' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='157.09' y1='193.68' x2='157.09' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='184.02' y1='193.68' x2='184.02' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='210.95' y1='193.68' x2='210.95' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='237.88' y1='193.68' x2='237.88' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='264.81' y1='193.68' x2='264.81' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='291.74' y1='193.68' x2='291.74' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='318.67' y1='193.68' x2='318.67' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<line x1='345.60' y1='193.68' x2='345.60' y2='200.88' style='stroke-width: 0.75; stroke: #BEBEBE;' />
+<text x='99.89' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='126.82' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='153.75' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='180.68' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>3</text>
+<text x='207.61' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='234.54' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='261.47' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>6</text>
+<text x='288.40' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>7</text>
+<text x='315.33' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>8</text>
+<text x='342.26' y='219.60' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>9</text>
+</svg>

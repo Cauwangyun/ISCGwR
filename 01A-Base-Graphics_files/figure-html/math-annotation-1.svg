@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<svg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' viewBox='0 0 432.00 266.98'>
+<defs>
+  <style type='text/css'><![CDATA[
+    line, polyline, path, rect, circle {
+      fill: none;
+      stroke: #000000;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-miterlimit: 10.00;
+    }
+  ]]></style>
+</defs>
+<rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
+<line x1='71.73' y1='193.54' x2='389.07' y2='193.54' style='stroke-width: 0.75;' />
+<line x1='71.73' y1='193.54' x2='71.73' y2='200.74' style='stroke-width: 0.75;' />
+<line x1='177.51' y1='193.54' x2='177.51' y2='200.74' style='stroke-width: 0.75;' />
+<line x1='283.29' y1='193.54' x2='283.29' y2='200.74' style='stroke-width: 0.75;' />
+<line x1='389.07' y1='193.54' x2='389.07' y2='200.74' style='stroke-width: 0.75;' />
+<text x='68.40' y='219.46' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>1</text>
+<text x='168.50' y='219.33' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='181.85' y='213.30' style='font-size: 8.40px; font-family: Liberation Sans;' textLength='4.68px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text x='274.28' y='219.33' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='287.63' y='213.30' style='font-size: 8.40px; font-family: Liberation Sans;' textLength='4.68px' lengthAdjust='spacingAndGlyphs'>4</text>
+<text x='380.06' y='219.33' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='393.40' y='213.30' style='font-size: 8.40px; font-family: Liberation Sans;' textLength='4.68px' lengthAdjust='spacingAndGlyphs'>6</text>
+<line x1='59.04' y1='188.55' x2='59.04' y2='64.02' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='188.55' x2='51.84' y2='188.55' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='157.42' x2='51.84' y2='157.42' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='126.29' x2='51.84' y2='126.29' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='95.15' x2='51.84' y2='95.15' style='stroke-width: 0.75;' />
+<line x1='59.04' y1='64.02' x2='51.84' y2='64.02' style='stroke-width: 0.75;' />
+<text transform='translate(41.60,195.98) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>−</text>
+<text transform='translate(41.60,187.72) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>π</text>
+<text transform='translate(40.03,171.35) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>−</text>
+<text transform='translate(40.03,163.10) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>π</text>
+<polyline points='41.76,154.92 30.05,151.75 ' style='stroke-width: 0.75;' />
+<text transform='translate(40.03,150.17) rotate(-90)' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text transform='translate(41.63,129.62) rotate(-90)' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(40.03,104.96) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>π</text>
+<polyline points='41.76,96.78 30.05,93.61 ' style='stroke-width: 0.75;' />
+<text transform='translate(40.03,92.03) rotate(-90)' style='font-size: 12.00px; font-family: Liberation Sans;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>2</text>
+<text transform='translate(41.60,67.32) rotate(-90)' style='font-size: 12.00px; font-family: Standard Symbols L;' textLength='6.59px' lengthAdjust='spacingAndGlyphs'>π</text>
+<defs>
+  <clipPath id='cpNTkuMDR8NDAxLjc2fDE5My41MzZ8NTkuMDQ='>
+    <rect x='59.04' y='59.04' width='342.72' height='134.50' />
+  </clipPath>
+</defs>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDE5My41MzZ8NTkuMDQ=)'><text x='183.72' y='130.58' style='font-size: 12.00px; font-style: italic; font-family: Liberation Sans;' textLength='93.37px' lengthAdjust='spacingAndGlyphs'>Customized Axes</text></g>
+<defs>
+  <clipPath id='cpMHw0MzJ8MjY2Ljk3Nnww'>
+    <rect x='0.00' y='0.00' width='432.00' height='266.98' />
+  </clipPath>
+</defs>
+<polyline points='59.04,193.54 401.76,193.54 401.76,59.04 59.04,59.04 59.04,193.54 ' style='stroke-width: 0.75;' clip-path='url(#cpMHw0MzJ8MjY2Ljk3Nnww)' />
+</svg>
