@@ -1,0 +1,5 @@
+# 广义线性混合效应模型 {#Generalized-Linear-Mixed-Models}
+
+面向生态学家和进化生物学家的广义线性混合效应模型介绍 [@Bolker2009]，相关材料^[<https://bbolker.github.io/mixedmodels-misc/glmmFAQ.html>]
+
+把这个网站整理出来 <http://glmm.wikidot.com/>

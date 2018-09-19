@@ -1,0 +1,128 @@
+--- 
+title: "统计计算与图形"
+author: "黄湘云"
+date: "`r format(Sys.time(), tz = 'Asia/Taipei', usetz = TRUE)`"
+site: bookdown::bookdown_site
+documentclass: book
+papersize: a4
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+table: yes
+graphics: yes
+mathspec: yes
+classoption: "oneside,UTF8"
+description: "An Introduction to Statistical Computing and Graphics with R. 统计计算和统计绘图入门"
+github-repo: "XiangyunHuang/ISCGwR"
+#cover-image: "images/mindmap4r.png"
+---
+
+```{r,include=FALSE}
+lapply(c(
+  "formatR", "ISLR", "svglite",
+  "ggplot2", "gridExtra"
+), function(pkg) {
+  if (system.file(package = pkg) == "") install.packages(pkg)
+})
+```
+
+# 欢迎 {#welcome}
+
+R 软件主要用于统计计算和统计绘图， 因其提供了完整的绘图系统， 实现了大量的统计方法， 而且相比于其他统计软件，具有免费和更新快的特点，在当今数据时代浪潮下，占有一席之地。 Markdown \index{markdown} 是一个文本标记语言。 欢迎来到 R 语言的世界， 写点关于发展历史等容易吸引人的东西， 让读者有继续看下去的欲望。
+
+## 结构 {#structure .unnumbered}
+
+介绍书籍写作工具，写作风格设定，结构说明，R语言介绍^[<https://www.r-project.org/about.html>]
+
+```{r r-logo,echo=FALSE,fig.cap="R语言",fig.link="https://www.r-project.org/",out.width="35%",out.width="35%",fig.subcap=c("历史","现在")}
+knitr::include_graphics(path = c("images/Rlogo_old.png","images/Rlogo.png"))
+```
+
+## 历史 {#history .unnumbered}
+
+历史数据分析
+
+```{r publish-count,fig.width=6,fig.height=3,fig.cap='有趣的是在2012年10月29日更新的R包多达148个'}
+# 获取数据
+pdb <- tools::CRAN_package_db()
+pdb <- pdb[,c("Package","Published")]
+# pdb <- readRDS(file = "data/pdb.RDS")
+library(ggplot2)
+ggplot(pdb[,c("Package","Published")], aes( as.Date(Published) ) ) +
+  geom_bar(color = 'springgreen4') + 
+  geom_line(data = data.frame( date = as.Date( c("2011-01-01","2012-10-20") ),
+                               count = c(130,148)), aes(x = date , y = count),
+            arrow = arrow(angle = 15, length = unit(0.15, "inches"))) +
+  annotate("text", x = as.Date("2010-11-01"), y = 128, label = "(2012-10-29,148)") +
+  scale_x_date(date_breaks = "1 year",date_labels = "%Y") +
+  labs(x = "Published Date" ,y = "Count" ) +
+  theme_minimal()
+```
+```{r publish-packages,fig.cap="R包发布量变化趋势",echo=FALSE}
+knitr::include_graphics(path = "images/publish-packages.png")
+```
+
+R语言进入到各方各面
+
+如何重复本书，写作工具，如何提交 PR，参与写作
+
+益辉维护的 R Markdown 生态及其它 R 包，如图 \@ref(fig:yihui-packages)
+
+```{asis}
+<div align="center">
+![(\#fig:yihui-packages) 益辉在 Github 上维护的 R 包^[2018年8月9日]](figures/packages.png){ width=75% }
+</div>
+```
+
+
+## 后记 {#colophon .unnumbered}
+
+这本书是在 [RStudio](https://www.rstudio.com/products/rstudio/download/) 内用 [R Markdown](https://rmarkdown.rstudio.com/) [@xie2018] 写的， [Git](https://git-scm.com/) 控制版本， [bookdown](https://bookdown.org/yihui/bookdown/) \index{bookdown} [@xie2016] 组织章节， [knitr](https://yihui.name/knitr/) \index{knitr} [@xie2015] 调用各类编程语言或解释或编译代码块，将执行结果返回到 R Markdown 文件， [Pandoc](http://pandoc.org) \index{Pandoc} 再将其转化为 Markdown 和 HTML 文档，进一步转化为 PDF 格式文档则需要 TinyTeX \index{TinyTeX} 发行版^[<https://yihui.name/tinytex/>]。
+
+```{asis}
+<div align="center">
+![(\#fig:workflow) 工作流程图^[Inkscape 绘制]](images/workflow.png){ width=75% }
+</div>
+```
+
+这个网站是通过 [Travis-CI](https://travis-ci.com/) 把编译结果（即 `_book` 目录）推送到 [Netlify](https://www.netlify.com/) 实现部署。在 Travis-CI 和 Netlify 都与 Github 绑定的情况下，源代码一发生改变就会触发编译，编译成功就会自动部署，这个过程即持续集成和连续部署，你正在阅读的版本是 `r Sys.Date()` 在 `r if(is_on_travis) "[Travis](https://travis-ci.com/XiangyunHuang/ISCGwR) 上" else "本地"`构建的。
+
+`r if(knitr::is_html_output() && is_on_travis) "如果编译和部署成功，你会看到一个绿色的指示器，否则指示器显示红色。[![Build Status](https://travis-ci.com/XiangyunHuang/ISCGwR.svg?branch=master)](https://travis-ci.com/XiangyunHuang/ISCGwR)"`
+
+## 说明 {#conventions .unnumbered}
+
+Alegreya 罗马体显示正文，AlegreyaSans 等线体显示数字，sourcecodepro 等宽体显示代码，Alegreya 字体源文件见 <https://github.com/huertatipografica/> 和样式见 <https://huertatipografica.com/en>，我们可以通过安装 LaTeX 包 alegreya 获得。R 包名称在文中以粗体显示，代码块输出用 `#>` 表示，以区分普通的代码注释 `#`
+
+绘图使用的中文字体是思源宋体和思源黑体， 由 **showtext** 包安装和调用，**tikzDevice** 和 **fontcm** 处理其中的数学公式，**xkcd** 设置漫画手写体风格。
+
+我的写作环境是 VBox + Ubuntu 16.04.4 Server + PuTTY + Xming，如图 \@ref(fig:swordsmans) 所示。
+
+```{r swordsmans, out.width="35%", fig.align='center', fig.ncol=2, echo=FALSE, fig.subcap=c("VBox 虚拟机","Ubuntu Server系统","PuTTY SSH登陆客户端","显示服务器 X Windows System"), fig.cap="远程办公四剑客", fig.sep = c("","\\\\","","")}
+knitr::include_graphics(path = c(
+  "figures/VBox.png", "figures/Ubuntu.png",
+  "figures/PuTTY.png", "figures/Xming.png"
+))
+```
+
+书籍生成过程中，R 进程和 Pandoc 版本信息如下：
+
+```{r}
+xfun::session_info()
+rmarkdown::pandoc_version()
+```
+
+
+## 授权 {#licenses .unnumbered}
+
+本书采用 [知识共享署名-非商业性使用-禁止演绎 4.0 国际许可协议](https://creativecommons.org/licenses/by-nc-nd/4.0/) 许可，请君自重，别没事儿拿去传个什么新浪爱问、百度文库以及 XX 经济论坛，项目中代码使用 [MIT 协议](https://github.com/XiangyunHuang/ISCGwR/blob/master/LICENSE) 开源
+
+```{r cc, echo = FALSE, out.width = "15%", fig.align = 'left'}
+knitr::include_graphics(path = "images/by-nc-nd.png")
+```
+
+```{r include=FALSE,cache=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  names(sessionInfo()$otherPkgs), names(sessionInfo()$loadedOnly)
+), 'packages.bib')
+```

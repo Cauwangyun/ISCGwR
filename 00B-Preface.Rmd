@@ -1,0 +1,20 @@
+# 前言 {#Preface}
+
+书籍结构
+
+## 统计计算
+
+1. [Advanced Statistical Computing](https://bookdown.org/rdpeng/advstatcomp/) --- [Roger D. Peng](http://www.biostat.jhsph.edu/~rpeng/) --- <https://simplystatistics.org/>
+2. [Generalized Additive Models](https://m-clark.github.io/generalized-additive-models) --- [Michael Clark](https://m-clark.github.io/)
+3. [Forecasting: Principles and Practice](https://otexts.org/fpp2/) --- [Rob J Hyndman](https://robjhyndman.com/) and [George Athanasopoulos](https://research.monash.edu/en/persons/george-athanasopoulos)
+4. [Mixed Models in R](https://m-clark.github.io/mixed-models-with-R) --- [Michael Clark](https://m-clark.github.io/)
+5. [Answering questions with data](https://crumplab.github.io/statistics/) --- [Matthew J. C. Crump](https://crumplab.github.io/) 用数据说话
+
+## 统计图形
+
+1. [plotly for R](https://plotly-book.cpsievert.me/) --- [Carson Sievert](https://cpsievert.me/)
+2. [Data Processing & Visualization](https://m-clark.github.io/data-processing-and-visualization) --- [Michael Clark](https://m-clark.github.io/)
+3. [Fundamentals of Data Visualization](https://serialmentor.com/dataviz/) --- [Claus O. Wilke](http://wilkelab.org/)
+4. [Data Visualization: A practical introduction](https://socviz.co/) --- [Kieran Healy](https://kieranhealy.org/)
+
+更多书籍 <https://bookdown.org/>

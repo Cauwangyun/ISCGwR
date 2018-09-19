@@ -1,0 +1,9 @@
+# (PART) 统计推断 {#Statistical-Inference .unnumbered}
+
+# 介绍 {#Statistical-Inference-Intro .unnumbered}
+
+介绍这部分讲什么内容，如何展开，抽样分布和假设检验
+
+单独一章
+
+统计推断以后每一章都要配应用章节

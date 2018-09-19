@@ -1,0 +1,13 @@
+Package: ISCGwR
+Type: Book
+Title: An Introduction to Statistical Computing and Graphics with/Using R.
+Version: 0.0.1
+Imports: 
+  bookdown,
+  ggplot2,
+  gridExtra,
+  ISLR,
+  formatR,
+Suggests: 
+  magick,
+  svglite

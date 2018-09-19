@@ -1,0 +1,9 @@
+# 一般线性模型 {#General-Linear-Models}
+
+从简单/经典线性模型推广到一般线性模型
+
+## 经典线性模型 {#Classic-Linear-Models}
+
+
+## 方差分析 {#Analysis-of-Variance}
+

@@ -1,0 +1,22 @@
+\usepackage[UTF8]{ctexcap}
+\usepackage{amssymb,amsmath,amsfonts,mathrsfs}
+\usepackage[lotdepth=2,lofdepth=2]{subfig}
+\usepackage[nottoc]{tocbibind}
+\usepackage{Alegreya}
+\usepackage[sfdefault]{AlegreyaSans}
+\usepackage[scale=0.85]{sourcecodepro}
+\makeatletter
+\defaultfontfeatures[\ttfamily]{
+    Numbers   = \sourcecodepro@figurestyle,
+    Scale     = \SourceCodePro@scale,
+    Extension = .otf }
+\setmonofont
+    [ UprightFont    = *-\sourcecodepro@regstyle,
+		  ItalicFont     = *-\sourcecodepro@regstyle It,
+		  BoldFont       = *-\sourcecodepro@boldstyle, 
+		  BoldItalicFont = *-\sourcecodepro@boldstyle It ]
+		{SourceCodePro}    
+\makeatother
+\usepackage{makeidx}
+\makeindex
+\frontmatter

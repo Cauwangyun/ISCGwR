@@ -1,0 +1,130 @@
+# Stan {#intro-stan}
+
+应该先认真看些材料，再写
+
+- 从统计的角度介绍 Stan，应该申请翻译文章 <http://www.stat.columbia.edu/%7Egelman/research/published/stan_jebs_2.pdf>
+- 贝叶斯线性混合效应模型与 Stan <http://www.tqmp.org/RegularArticles/vol12-3/p175/p175.pdf>
+
+
+## 正态分布 {#normal-distribution}
+
+Stan 是一门概率编程语言，我们以估计正态分布参数为例说明
+
+```{r set-parameters}
+rm(list = ls())
+set.seed(14568)
+# Known paramters
+mu <- 10
+sd <- 2
+# sample size
+nobs <- 500
+# Generate random data
+y <- rnorm(n = nobs, mean = mu, sd = sd)
+```
+
+最大似然估计，简单推导过程，计算代码；再讲 stan 的计算步骤
+
+
+stan 代码
+
+```{r}
+writeLines(readLines('code/code_stan/01_est_mean_sd.stan',encoding = "UTF8"))
+```
+
+打包观测数据，初始化待估参数值，指定链条数，其中 `dataList` 必须与 stan 代码中数据块声明保持一致（如变量名称，长度），每条链使用不同的初始值，选择合适的初始值可以有效地提高收敛的速度。
+
+```{r initialize}
+# specify number of chains, used to initialize values and specify chains
+nchains <- 4
+# Package data
+dataList <- list(
+  n = nobs,
+  y = y
+)
+# Initialize values
+# Use different starting values for each chain
+initslst <- lapply(1:nchains, function(i) {
+  list(
+    mu = runif(1, min(y), max(y)),
+    sigma = runif(1, 1, 10)    
+  )
+})
+```
+
+拟合模型
+
+```{r fit-stan-model,message=FALSE,warning=FALSE}
+library(rstan)
+options(mc.cores = parallel::detectCores())
+rstan_options(auto_write = TRUE)
+# send everything to Stan
+fit1 <- stan(
+  file = "code_stan/01_est_mean_sd.stan",
+  data = dataList,
+  init = initslst,
+  chains = nchains,
+  iter = 1000,
+  warmup = 500,
+  thin = 1,
+  verbose = FALSE
+)
+```
+
+检查收敛性，Rhat 决定收敛性，所有待估参数的Rhat必须小于1.1，同时有效样本数量 n_eff 除以抽样总数 N 必须小于0.001，否则收敛性是值得怀疑的。马尔科夫链蒙特卡罗采样的轨迹图（trace plot）
+
+
+```{r traceplot,fig.cap="Markov chain traceplots"}
+# View traceplots
+traceplot(fit1)
+```
+
+拟合结果及解释
+
+```{r fit-res}
+# view results
+fit1
+```
+
+抽取均值和方差，绘制后验分布图
+
+```{r extract-fit-results,fig.cap="均值和方差的后验分布及贝叶斯估计值",fig.width=8}
+# extract results
+est_mean <- rstan::extract(fit1, "mu")$mu
+est_sd <- rstan::extract(fit1, "sigma")$sigma
+# plot results
+par(mfrow = c(1, 2))
+hist(est_mean, breaks = 50)
+abline(v = mu, lwd = 5)
+hist(est_sd, breaks = 50)
+abline(v = sd, lwd = 5)
+par(mfrow = c(1, 1))
+```
+
+## 高斯过程 {#gaussian-process}
+
+模拟高斯过程例子来自 Stan 参考手册[@stan2018]
+
+```{r}
+writeLines(readLines('code/code_stan/02_gp.stan',encoding = "UTF8"))
+```
+
+stan 库内置了核函数为二次幂指数的实现，因此可以直接调用 `cov_exp_quad` 函数计算协方差矩阵
+
+```{r}
+writeLines(readLines('code/code_stan/02_gp_compact.stan',encoding = "UTF8"))
+```
+
+另外介绍一下 rstan 包[@R-RStan]，loo 包[@loo2017]，bayesplot 包[@R-bayesplot]， rstanarm 包[@R-rstanarm]，shinystan 包[@R-shinystan] 和 brms 包 [@brms2017JSS]
+
+
+## 相关文献
+
+
+在线书籍
+
+- [Simon Jackman’s Bayesian Model Examples in Stan](https://jrnold.github.io/bugs-examples-in-stan/)
+
+
+
+
+

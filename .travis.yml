@@ -1,0 +1,58 @@
+language: r
+sudo: false
+cache:
+  packages: true
+#  directories:
+#    - $HOME/.npm
+latex: false
+branches:
+  only:
+    - master
+    - release
+    - stable
+
+pandoc_version: 2.3
+
+git:
+  depth: 5
+  submodules: false
+  
+repos:
+  CRAN: https://cloud.r-project.org
+
+addons:
+  apt:
+    sources:
+      - sourceline: ppa:opencpu/imagemagick
+    packages:
+      - ghostscript
+      - imagemagick
+      - optipng
+      - libmagick++-dev
+    #  - libosmesa6
+    #  - libosmesa6-dev
+    #  - freeglut3
+    #  - freeglut3-dev
+    #  - graphviz
+    #  - asymptote
+    #  - libgit2-dev
+    #  - phantomjs
+
+before_install:
+  - npm install netlify-cli -g
+  - curl -fLo /tmp/tinytex.tar.gz https://travis-bin.yihui.name/tinytex.tar.gz
+  - tar xzf /tmp/tinytex.tar.gz -C /$HOME
+  - export PATH=/$HOME/.TinyTeX/bin/x86_64-linux:$PATH
+  - tlmgr install $(cat latex/TeXLive.pkgs | tr '\n' ' ') || true
+
+before_script:
+  - Rscript -e 'update.packages(lib.loc = .libPaths()[1], ask = FALSE)'
+  - chmod +x ./_deploy.sh
+
+script:
+  - make gitbook 
+
+after_success:
+  - make pdf
+  - ./_deploy.sh
+ # - netlify deploy -t $NETLIFY_PAT

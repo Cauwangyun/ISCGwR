@@ -1,0 +1,27 @@
+bookdown::gitbook:
+  dev: svglite
+  css: css/style.css
+  config:
+    toc:
+      collapse: none
+      before: |
+        <li><a href="./">统计图形与统计计算</a></li>
+      after: |
+        <li><a href="https://www.netlify.com/" target="blank">Published with Netlify</a></li>
+    download: ["pdf", "epub", "mobi"]
+bookdown::pdf_book:
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex    
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: yes
+  toc_depth: 2
+  toc_bib: no
+  toc_unnumbered: yes
+  toc_appendix: yes
+  template: latex/default.latex
+  pandoc_args: ["--top-level-division=chapter", "--wrap=none"]
+bookdown::epub_book: 
+  dev: svglite

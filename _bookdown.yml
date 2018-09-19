@@ -1,0 +1,38 @@
+book_filename: "ISCGwR"
+delete_merged_file: true
+language:
+  label:
+    fig: "图 "
+    tab: "表 "
+    thm: "定理 "
+    lem: "引理 "
+    cor: "推论 "
+    prp: "命题 "
+    def: "定义 "
+    exm: "例 "
+    exr: "练习 "
+  ui:
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]
+
+clean: ["packages.bib", "ISCGwR.rds"]
+output_dir: _book
+new_session: yes    
+before_chapter_script: ["_common.R"]
+
+rmd_files: [
+  "index.Rmd",
+  
+  "01-Part-One-Statistical-Graphics.Rmd",
+  "01A-Base-Graphics.Rmd",
+  "01B-Advanced-Graphics.Rmd",
+  "01C-Published-Graphics.Rmd",
+  
+  "92-Appendix.Rmd",
+#  "93-AppendixA.Rmd",
+#  "94-AppendixB.Rmd",
+#  "95-AppendixC.Rmd",
+  "96-References.Rmd",
+]
+
+edit: https://github.com/XiangyunHuang/ISCGwR/edit/master/%s
